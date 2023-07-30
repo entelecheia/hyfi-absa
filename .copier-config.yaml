@@ -1,0 +1,45 @@
+# Changes here will be overwritten by Copier; do NOT edit manually
+_commit: v0.11.4
+_src_path: gh:entelecheia/hyperfast-python-template
+author: Young Joon Lee
+build_and_release: true
+code_template_answers_file: .copier-hyfi-config.yaml
+code_template_source: gh:entelecheia/hyfi-template
+codecov_graph_token: '[REPLACE_ME]'
+copyright_year: 2023
+documentaion_tool: jupyter-book
+documentation_url: https://hyfi-absa.entelecheia.ai
+email: entelecheia@hotmail.com
+favicon_path: https://assets.entelecheia.ai/favicon.png
+friendly_name: HyFI-ABSA
+github_repo_name: hyfi-absa
+github_username: entelecheia
+google_analytics_id: G-Q1HTTH4YZ2
+logo_path: ''
+main_branch: main
+package_name: hyabsa
+package_scripts:
+- hyabsa = 'hyabsa.__cli__:main'
+poe_task_files:
+- .tasks.toml
+- .tasks-extra.toml
+project_description: The main function of HyFI-ABSA is to facilitate Aspect-Based
+    Sentiment Analysis (ABSA), a specialized form of sentiment analysis that allows
+    you to evaluate specific components or aspects of a given text. It also performs
+    general sentiment analysis tasks. One feature of the HyFI-ABSA package is its
+    capacity to employ generative language models for creating training datasets.
+    This feature not only eliminates the extensive manual labor typically associated
+    with data collection and preparation, but also ensures a more diverse and balanced
+    dataset, which subsequently improves the overall performance and accuracy of sentiment
+    analysis. In addition to these primary features, HyFI-ABSA boasts seamless integration
+    with the existing HyFI architecture, thus allowing you to effortlessly combine
+    it with other HyFI plugins and tools.
+project_license: MIT
+project_name: hyfi-absa
+project_short_description: HyFI-ABSA is a Python package developed as a plugin for
+    the Hydra Fast Interface (HyFI).
+upload_to_release: true
+upload_to_repository: true
+use_launch_buttons: true
+use_source_code_skeleton: true
+
