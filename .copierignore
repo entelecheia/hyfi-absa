@@ -2,3 +2,7 @@
 .tasks-extra.toml
 CHANGELOG.md
 pyproject.toml
+src/hyabsa/__cli__.py
+src/hyabsa/_version.py
+src/hyabsa/__init__.py
+tests/hyabsa/test_cli.py

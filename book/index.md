@@ -10,7 +10,7 @@
 <!-- Links: -->
 [hyperfast python template]: https://github.com/entelecheia/hyperfast-python-template
 
-[codecov-image]: https://codecov.io/gh/entelecheia/hyfi-absa/branch/main/graph/badge.svg?token=[REPLACE_ME]
+[codecov-image]: https://codecov.io/gh/entelecheia/hyfi-absa/branch/main/graph/badge.svg?token=BC2f1ooCPI
 [codecov-url]: https://codecov.io/gh/entelecheia/hyfi-absa
 [pypi-image]: https://img.shields.io/pypi/v/hyfi-absa
 [license-image]: https://img.shields.io/github/license/entelecheia/hyfi-absa
