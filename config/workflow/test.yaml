@@ -1,0 +1,10 @@
+# @package _global_
+defaults:
+  - __init__
+  - /task@test_task: test
+  - override /project: test
+
+workflow_name: test
+verbose: true
+tasks:
+  - test_task
