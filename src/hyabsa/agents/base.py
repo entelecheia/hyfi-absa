@@ -32,14 +32,12 @@ class BaseAgent(BaseModel):
     @property
     def output_filepath(self) -> str:
         ouput_filename = (
-            self.output_filename or f"{self.absa_task}_{self.prompt}_{self.model}.jsonl"
+            self.output_filename or f"{self.task}_{self.prompt}_{self.model}.jsonl"
         )
         return f"{self.output_dir}/{ouput_filename}"
 
     def build_message(self, text: str) -> ChatMessage:
-        return ChatMessage(
-            content=self.prompts.build(text, self.absa_task, self.prompt)
-        )
+        return ChatMessage(content=self.prompts.build(text, self.task, self.prompt))
 
     def execute(self, text: str) -> str:
         result = AgentResult.from_chat_reponse(
