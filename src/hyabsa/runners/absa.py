@@ -41,12 +41,8 @@ class AbsaRunner(BaseRunner):
         HyFI.partial(self.data_save.config)(dataset)
 
     def run(self):
-        data = self.load_dataset()
-        self.save_dataset(data)
-
-    def run_absa(self):
-        tasks = ["QUAD"] if self.tasks is None else self.tasks
-        dataset = self.dataset
+        dataset = self.load_dataset()
+        tasks = self.tasks or ["QUAD"]
         for task in tasks:
             logger.info("Predicting %s...", task)
             dataset = dataset.map(
@@ -56,7 +52,7 @@ class AbsaRunner(BaseRunner):
                 num_proc=self.num_workers,
                 fn_kwargs={
                     "task": task,
-                    "agent": self.agent,
+                    "agent": self.agent.model_copy(),
                     "text_col": self.text_col,
                 },
                 remove_columns=self.remove_columns,
@@ -67,6 +63,23 @@ class AbsaRunner(BaseRunner):
         self.save_dataset(dataset)
 
 
+def batch_run(
+    batch,
+    task: str = "QUAD",
+    agent: AbsaAgent = None,
+    text_col: str = "bodyText",
+) -> dict:
+    if agent is None:
+        agent = {}
+    model = agent
+    model.task = task
+    if model.verbose:
+        print(model)
+
+    res = [execute_each(text, model) for text in batch[text_col]]
+    return {f"{task}_pred": res}
+
+
 def execute_each(
     text: str,
     agent: AbsaAgent,
@@ -75,26 +88,9 @@ def execute_each(
     if agent.verbose:
         logger.info(
             "Task: %s | Text:\n%s\n | Response:\n%s\n",
-            agent.absa_task,
+            agent.task,
             text,
             response,
         )
 
     return response
-
-
-def batch_run(
-    batch,
-    task: str = "QUAD",
-    agent: dict = None,
-    text_col: str = "bodyText",
-) -> dict:
-    if agent is None:
-        agent = {}
-    model = AbsaAgent(**agent)
-    model.task = task
-    if model.verbose:
-        print(model)
-
-    res = [execute_each(text, model) for text in batch[text_col]]
-    return {f"{task}_pred": res}
