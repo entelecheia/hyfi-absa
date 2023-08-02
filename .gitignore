@@ -1,6 +1,7 @@
 # working directory
 workspace/
 outputs/
+secrets/
 
 # hypothesis: https://github.com/HypothesisWorks/hypothesis
 .hypothesis/
