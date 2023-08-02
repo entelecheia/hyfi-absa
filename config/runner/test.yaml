@@ -1,0 +1,7 @@
+defaults:
+  - absa
+
+data_load_config:
+  path: parquet
+  data_files:
+    - ${__project_root_path__:}/tests/assets/sample_data/sample_100.parquet
