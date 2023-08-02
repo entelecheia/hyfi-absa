@@ -13,11 +13,12 @@ logger = HyFI.getLogger(__name__)
 class AbsaRunner(BaseRunner):
     _config_group_: str = "runner"
     _config_name_: str = "absa"
+    _auto_populate_: bool = True
 
     agent: AbsaAgent = AbsaAgent()
     tasks: Optional[List[str]] = []
-    data_load_config: RunConfig = RunConfig(_config_name_="load_dataset")
-    data_save_config: RunConfig = RunConfig(_config_name_="save_dataset_to_disk")
+    data_load: RunConfig = RunConfig(_config_name_="load_dataset")
+    data_save: RunConfig = RunConfig(_config_name_="save_dataset_to_disk")
 
     text_col: str = "bodyText"
     batch_size: int = 1000
@@ -34,13 +35,14 @@ class AbsaRunner(BaseRunner):
         return self._dataset
 
     def load_dataset(self) -> Dataset:
-        return HyFI.partial(self.data_load_config)()
+        return HyFI.partial(self.data_load.config)()
 
     def save_dataset(self, dataset: Dataset) -> None:
-        HyFI.partial(self.data_save_config)(dataset)
+        HyFI.partial(self.data_save.config)(dataset)
 
     def run(self):
-        return self.load_dataset()
+        data = self.load_dataset()
+        self.save_dataset(data)
 
     def run_absa(self):
         tasks = ["QUAD"] if self.tasks is None else self.tasks
