@@ -14,9 +14,9 @@ class AbsaAgent(BaseAgent):
     llm: OpenAIChatCompletion = OpenAIChatCompletion()
 
     def execute(self, text: str) -> str:
-        result = AgentResult.from_chat_reponse(
-            self.llm.request(self.build_message(text))
-        )
+        msg = self.build_message(text)
+        rst = self.llm.request(msg)
+        result = AgentResult.from_chat_reponse(rst)
         if self.output_filepath:
             HyFI.append_to_jsonl(result.model_dump(), self.output_filepath)
         return json.dumps(result.model_dump(), ensure_ascii=False)
