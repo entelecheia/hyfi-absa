@@ -11,8 +11,9 @@ logger = HyFI.getLogger(__name__)
 
 
 class AbsaRunner(BaseRunner):
-    _config_group_: str = "runner"
+    _config_group_: str = "/runner"
     _config_name_: str = "absa"
+
     _auto_populate_: bool = True
 
     agent: AbsaAgent = AbsaAgent()
