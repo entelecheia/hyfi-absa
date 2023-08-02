@@ -1,10 +1,10 @@
 defaults:
-  - /api: __init__
+  - /llm: __init__
   - /prompts: __init__
 
 _target_: hyabsa.agent.AbsaAgent
-absa_task:
-prompt_name:
+task:
+prompt:
 output_dir: outputs/preds
-save_filename:
+output_filename:
 verbose: false

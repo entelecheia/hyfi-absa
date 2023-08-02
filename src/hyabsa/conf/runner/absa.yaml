@@ -1,0 +1,15 @@
+defaults:
+- /agent@agent: absa
+- /run@data_load_config: load_dataset
+- /run@data_save_config: save_dataset_to_disk
+_target_: hyabsa.runners.absa.AbsaRunner
+_config_name_: absa
+_config_group_: runner
+calls: []
+verbose: false
+tasks: []
+text_col: bodyText
+batch_size: 1000
+num_workers: 1
+remove_columns: null
+load_from_cache_file: true

@@ -1,9 +1,9 @@
 defaults:
   - __init__
-  - override /api: openai
+  - override /llm: openai
   - override /prompts: default
 
-_config_name_: openai
+_config_name_: absa
 _target_: hyabsa.agent.AbsaAgent
-absa_task: QUAD
-prompt_name: base
+task: QUAD
+prompt: base
