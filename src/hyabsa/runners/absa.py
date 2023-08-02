@@ -1,12 +1,11 @@
 from typing import List, Optional, Union
 
 from datasets import Dataset
+from hyfi.run import RunConfig
+from hyfi.runner import BaseRunner
 
 from hyabsa import HyFI
 from hyabsa.agents import AbsaAgent
-
-from hyfi.runner import BaseRunner
-from hyfi.run import RunConfig
 
 logger = HyFI.getLogger(__name__)
 
