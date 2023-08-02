@@ -1,0 +1,16 @@
+defaults:
+  - __init__
+  - /pipe@pipe_load: load_dataset
+  - /pipe@pipe_load_disk: load_dataset_from_disk
+  - /pipe@pipe_save: save_dataset_to_disk
+  - /pipe@pipe_sample: sample_dataset
+  - /pipe@pipe_save_df: save_dataframes
+
+use_task_as_initial_object: true
+steps:
+  - uses: pipe_load
+    with:
+      path: parquet
+      data_files:
+        - ${__project_root_path__:}/tests/assets/sample_data/sample_100.parquet
+    verbose: true

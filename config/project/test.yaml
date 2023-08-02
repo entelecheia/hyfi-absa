@@ -1,0 +1,7 @@
+defaults:
+  - __init__
+
+project_name: hyfi-absa
+project_root: ${get_original_cwd:}
+num_workers: 1
+verbose: true
