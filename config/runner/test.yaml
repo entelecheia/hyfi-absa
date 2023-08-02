@@ -1,7 +1,10 @@
 defaults:
   - absa
 
-data_load_config:
+data_load:
   path: parquet
   data_files:
     - ${__project_root_path__:}/tests/assets/sample_data/sample_100.parquet
+
+data_save:
+  dataset_path: ${__project_root_path__:}/workspace/abas_results
