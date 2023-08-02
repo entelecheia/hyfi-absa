@@ -34,6 +34,7 @@ class BaseAgent(BaseModel):
         ouput_filename = (
             self.output_filename or f"{self.task}_{self.prompt}_{self.model}.jsonl"
         )
+        HyFI.mkdir(self.output_dir)
         return f"{self.output_dir}/{ouput_filename}"
 
     def build_message(self, text: str) -> ChatMessage:
