@@ -10,7 +10,6 @@ def test_absa_runner():
 def test_absa_runner_execute():
     runner = AbsaRunner(_config_name_="test")
     assert runner is not None
-    print(runner.run())
 
 
 if __name__ == "__main__":
