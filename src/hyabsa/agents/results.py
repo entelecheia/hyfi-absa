@@ -1,6 +1,6 @@
 import datetime
 import json
-from typing import List
+from typing import Any, List
 
 from hyfi.composer import BaseModel
 
@@ -14,24 +14,25 @@ class AgentResult(BaseModel):
     timestamp: str = f"{datetime.datetime.now():%Y-%m-%d %H:%M:%S}"
     parsed: str
     usage: dict
-    response: List[dict]
+    response: List[Any]
 
     @classmethod
     def from_chat_reponse(
         cls,
         response: ChatCompletionResponse,
     ) -> "AgentResult":
+        parsed = "success"
         try:
             content = json.loads(response.content)
-            result = cls(
-                parsed="success",
-                usage=response.usage,
-                response=content,
-            )
+            if isinstance(content, dict):
+                parsed = "failed"
+                content = [content]
         except json.decoder.JSONDecodeError:
-            result = cls(
-                parsed="failed",
-                usage=response.usage,
-                response=response,
-            )
-        return result
+            content = [response.content]
+            parsed = "failed"
+
+        return cls(
+            parsed=parsed,
+            usage=response.usage,
+            response=content,
+        )

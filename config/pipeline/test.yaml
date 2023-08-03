@@ -13,4 +13,10 @@ steps:
       path: parquet
       data_files:
         - ${__project_root_path__:}/tests/assets/sample_data/sample_100.parquet
+      split: train
+    verbose: true
+  - uses: pipe_sample
+    with:
+      num_samples: 10
+      verbose: true
     verbose: true
