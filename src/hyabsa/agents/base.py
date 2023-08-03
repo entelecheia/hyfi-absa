@@ -1,3 +1,4 @@
+import datetime
 import json
 from typing import Optional
 
@@ -32,7 +33,8 @@ class BaseAgent(BaseModel):
     @property
     def output_filepath(self) -> str:
         ouput_filename = (
-            self.output_filename or f"{self.task}_{self.prompt}_{self.model}.jsonl"
+            self.output_filename
+            or f"{self.task}_{self.prompt}_{self.model}_{datetime.datetime.now().strftime('%Y%m%d%H%M%S')}.jsonl"
         )
         HyFI.mkdir(self.output_dir)
         return f"{self.output_dir}/{ouput_filename}"
@@ -42,7 +44,8 @@ class BaseAgent(BaseModel):
 
     def execute(self, text: str) -> str:
         result = AgentResult.from_chat_reponse(
-            self.llm.request(self.build_message(text))
+            self.llm.request(self.build_message(text)),
+            verbose=self.verbose,
         )
         if self.output_filepath:
             HyFI.append_to_jsonl(result.model_dump(), self.output_filepath)
