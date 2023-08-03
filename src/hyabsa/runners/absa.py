@@ -14,6 +14,7 @@ class AbsaRunner(BaseRunner):
     _config_name_: str = "absa"
     _auto_populate_: bool = True
 
+    task_name: str = "absa"
     agent: AbsaAgent = AbsaAgent()
     tasks: Optional[List[str]] = []
     data_load: RunConfig = RunConfig(_config_name_="load_dataset")
@@ -24,6 +25,7 @@ class AbsaRunner(BaseRunner):
     num_workers: int = 1
     remove_columns: Optional[Union[List[str], str]] = None
     load_from_cache_file: bool = True
+    top_n: Optional[int] = None
 
     _dataset: Optional[Dataset] = None
 
@@ -41,9 +43,18 @@ class AbsaRunner(BaseRunner):
 
     def run(self):
         dataset = self.load_dataset()
+        if self.top_n is not None:
+            logger.info("Selecting top %s rows...", self.top_n)
+            dataset = dataset.select(range(self.top_n))
+
         tasks = self.tasks or ["QUAD"]
         for task in tasks:
-            logger.info("Predicting %s...", task)
+            logger.info(
+                "Predicting %s with a batch size of %s and %s workers...",
+                task,
+                self.batch_size,
+                self.num_workers,
+            )
             dataset = dataset.map(
                 batch_run,
                 batched=True,
