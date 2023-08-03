@@ -80,13 +80,12 @@ def batch_run(
     text_col: str = "bodyText",
 ) -> dict:
     if agent is None:
-        agent = {}
-    model = agent
-    model.task = task
-    if model.verbose:
-        print(model)
+        raise ValueError("Agent must be provided")
+    agent.task = task
+    if agent.verbose:
+        print(agent)
 
-    res = [execute_each(text, model) for text in batch[text_col]]
+    res = [execute_each(text, agent) for text in batch[text_col]]
     return {f"{task}_pred": res}
 
 
@@ -96,11 +95,7 @@ def execute_each(
 ) -> str:
     response = agent.execute(text)
     if agent.verbose:
-        logger.info(
-            "Task: %s | Text:\n%s\n | Response:\n%s\n",
-            agent.task,
-            text,
-            response,
-        )
+        # logger.info("Text: %s", text)
+        logger.info("Response: %s", response)
 
     return response
