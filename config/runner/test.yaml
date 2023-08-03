@@ -9,7 +9,7 @@ data_load:
   split: train
 
 data_save:
-  dataset_path: ${get_original_cwd:}/workspace/abas_results
+  dataset_path: ${get_original_cwd:}/workspace/abas_results/test
 
 agent:
   output_dir: ${get_original_cwd:}/workspace/predictions/test
