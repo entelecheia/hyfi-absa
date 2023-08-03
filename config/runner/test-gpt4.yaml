@@ -13,3 +13,5 @@ data_save:
 
 agent:
   output_dir: ${get_original_cwd:}/workspace/predictions/gpt4
+  verbose: true
+verbose: true
