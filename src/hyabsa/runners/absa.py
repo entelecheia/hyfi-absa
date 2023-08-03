@@ -69,6 +69,8 @@ class AbsaRunner(BaseRunner):
                 load_from_cache_file=self.load_from_cache_file,
             )
         if self.verbose:
+            logger.info("Dataset shape: %s", dataset.shape)
+            logger.info("Dataset columns: %s", dataset.column_names)
             print(dataset[0])
         self.save_dataset(dataset)
 
@@ -83,7 +85,7 @@ def batch_run(
         raise ValueError("Agent must be provided")
     agent.task = task
     if agent.verbose:
-        print(agent)
+        HyFI.print(agent.model_dump())
 
     res = [execute_each(text, agent) for text in batch[text_col]]
     return {f"{task}_pred": res}
