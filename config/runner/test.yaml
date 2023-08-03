@@ -1,11 +1,15 @@
 defaults:
   - absa
 
+top_n: 10
 data_load:
   path: parquet
   data_files:
-    - ${__project_root_path__:}/tests/assets/sample_data/sample_100.parquet
+    - ${get_original_cwd:}/tests/assets/sample_data/sample_100.parquet
   split: train
 
 data_save:
-  dataset_path: ${__project_root_path__:}/workspace/abas_results
+  dataset_path: ${get_original_cwd:}/workspace/abas_results
+
+agent:
+  output_dir: ${get_original_cwd:}/workspace/predictions/test
