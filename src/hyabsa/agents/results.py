@@ -20,7 +20,6 @@ class AgentResult(BaseModel):
     def from_chat_reponse(
         cls,
         response: ChatCompletionResponse,
-        verbose: bool = False,
     ) -> "AgentResult":
         parsed = "success"
         try:
@@ -32,12 +31,8 @@ class AgentResult(BaseModel):
             content = [response.content]
             parsed = "failed"
 
-        result = cls(
+        return cls(
             parsed=parsed,
             usage=response.usage,
             response=content,
         )
-        if verbose:
-            logger.info("Parsed: %s", result.parsed)
-            logger.info("Response: %s", result.response)
-        return result
