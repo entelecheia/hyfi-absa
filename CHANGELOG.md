@@ -1,5 +1,17 @@
 <!--next-version-placeholder-->
 
+## v0.3.0 (2023-08-03)
+
+### Feature
+
+* **openai:** Set API key and initialize ChatCompletion API ([`611ca18`](https://github.com/entelecheia/hyfi-absa/commit/611ca188415dd7db4b3c33adadfbab7aec1de330))
+* **base agent:** Add timestamp to output_filename, add verbose parameter to execute function ([`c6a531d`](https://github.com/entelecheia/hyfi-absa/commit/c6a531d60eaa14ad5daa9c3286472e5c85cbc0f4))
+* **config:** Add test-gpt4.yaml and gpt4.yaml configuration files, update absa.yaml with more configurations, create gpt4.yaml configuration file ([`257c6e6`](https://github.com/entelecheia/hyfi-absa/commit/257c6e62918e10eb05e1ef9e4637a07c3ecf49de))
+
+### Fix
+
+* **absa:** Add top_n attribute for row selection ([`1920f42`](https://github.com/entelecheia/hyfi-absa/commit/1920f42f8b5949f5d77ca496e28ce409ced579a9))
+
 ## v0.2.0 (2023-08-02)
 
 ### Feature
