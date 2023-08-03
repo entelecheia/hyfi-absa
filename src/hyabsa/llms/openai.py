@@ -57,6 +57,8 @@ class OpenAIChatCompletion(BaseModel):
             api_key = denv.OPENAI_API_KEY.get_secret_value()
         if not api_key:
             raise ValueError("OpenAI API Key is required.")
+        openai.api_key = api_key
+        logger.info("OpenAI API Key is set successfully.")
         self._engine_ = openai.ChatCompletion()
         logger.info("OpenAI ChatCompletion API is initialized.")
 
