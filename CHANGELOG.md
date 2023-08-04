@@ -1,5 +1,11 @@
 <!--next-version-placeholder-->
 
+## v0.3.1 (2023-08-04)
+
+### Fix
+
+* **pipeline:** Rename num_samples to sample_size in test.yaml ([`5b1022a`](https://github.com/entelecheia/hyfi-absa/commit/5b1022a8877b553fbfb874020b2f0c90b65d5859))
+
 ## v0.3.0 (2023-08-03)
 
 ### Feature
