@@ -17,6 +17,6 @@ steps:
     verbose: true
   - uses: pipe_sample
     with:
-      num_samples: 10
+      sample_size: 10
       verbose: true
     verbose: true
