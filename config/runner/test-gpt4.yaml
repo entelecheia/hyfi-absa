@@ -1,17 +1,6 @@
 defaults:
-  - gpt4
+  - test
+  - override /agent@agent: gpt4
 
+name: test-gpt4
 top_n: 3
-data_load:
-  path: parquet
-  data_files:
-    - ${get_original_cwd:}/tests/assets/sample_data/sample_100.parquet
-  split: train
-
-data_save:
-  dataset_path: ${get_original_cwd:}/workspace/abas_results/gpt4
-
-agent:
-  output_dir: ${get_original_cwd:}/workspace/predictions/gpt4
-  verbose: true
-verbose: true
