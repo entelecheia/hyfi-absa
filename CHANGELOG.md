@@ -1,5 +1,14 @@
 <!--next-version-placeholder-->
 
+## v0.3.2 (2023-08-08)
+
+### Fix
+
+* **hyabsa:** Modify configuration in __init__.yaml files for agent, llm and prompts. ([`f5c55dd`](https://github.com/entelecheia/hyfi-absa/commit/f5c55dd2a1ce411f57da161c6ca0d3237124d5c4))
+* **openai:** Replace dotenv with DotEnvConfig ([`263a0ce`](https://github.com/entelecheia/hyfi-absa/commit/263a0cedadceb1eafdb9df69463ea2eb89e60650))
+* **runner:** Remove project from absa.yaml ([`16bb682`](https://github.com/entelecheia/hyfi-absa/commit/16bb682765401b9cf13af3dbe252ba9bb71028cb))
+* **dependencies:** Upgrade hyfi to 1.25.0 ([`44730e4`](https://github.com/entelecheia/hyfi-absa/commit/44730e433ba82b528c129137b7f032f5cb4638e6))
+
 ## v0.3.1 (2023-08-04)
 
 ### Fix
