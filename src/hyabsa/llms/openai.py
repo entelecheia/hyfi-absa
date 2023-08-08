@@ -52,7 +52,7 @@ class OpenAIChatCompletion(BaseModel):
 
     def initialize(self, api_key: Optional[str] = None):
         api_key = api_key or self.api_key
-        denv = HyFI.dotenv()
+        denv = HyFI.DotEnvConfig()
         if not api_key and denv.OPENAI_API_KEY:
             api_key = denv.OPENAI_API_KEY.get_secret_value()
         if not api_key:
