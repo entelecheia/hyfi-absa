@@ -78,8 +78,8 @@ class AbsaRunner(BaseRunner):
 def batch_run(
     batch,
     task: str = "QUAD",
-    agent: AbsaAgent = None,
-    text_col: str = "bodyText",
+    agent: Optional[AbsaAgent] = None,
+    text_col: str = "text",
 ) -> dict:
     if agent is None:
         raise ValueError("Agent must be provided")
