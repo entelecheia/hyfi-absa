@@ -2,7 +2,9 @@ defaults:
   - /llm: __init__
   - /prompts: __init__
 
-_target_: hyabsa.agent.AbsaAgent
+_config_group_: /agent
+_config_name_: __init__
+_target_: hyabsa.agents.AbsaAgent
 task:
 prompt:
 output_dir: outputs/preds
