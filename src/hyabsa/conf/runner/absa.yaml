@@ -1,5 +1,6 @@
 defaults:
-- /path@path: __task__
+- /path@path: __batch__
+- /batch@batch: __init__
 - /agent@agent: absa
 - /run@data_load: load_dataset
 - /run@data_save: save_dataset_to_disk
@@ -12,6 +13,7 @@ task_root: workspace
 version: 0.0.0
 module: null
 pipelines: []
+batch_name: demo
 calls: []
 tasks: []
 text_col: bodyText
