@@ -1,5 +1,12 @@
 <!--next-version-placeholder-->
 
+## v0.3.3 (2023-08-25)
+
+### Fix
+
+* **openai:** Add ChatCompletionEnv class, refactor environment variables access ([`ced15cb`](https://github.com/entelecheia/hyfi-absa/commit/ced15cb79de5a0d403b2fffe444952804efa40b5))
+* **dependencies:** Upgrade hyfi to 1.32.1 ([`5e16a32`](https://github.com/entelecheia/hyfi-absa/commit/5e16a326c201e392fa7a5589147a1775c982f0ff))
+
 ## v0.3.2 (2023-08-08)
 
 ### Fix
