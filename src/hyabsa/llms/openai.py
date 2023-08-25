@@ -3,7 +3,8 @@ from typing import Any, Dict, List, Optional
 
 import backoff
 import openai
-from hyfi.composer import BaseModel
+from hyfi.composer import BaseModel, Field, SecretStr
+from hyfi.env import Env
 from openai.error import (
     APIConnectionError,
     APIError,
@@ -33,6 +34,10 @@ class ChatCompletionResponse(BaseModel):
     }
 
 
+class ChatCompletionEnv(Env):
+    OPENAI_API_KEY: Optional[SecretStr] = Field(exclude=True, default="")
+
+
 class OpenAIChatCompletion(BaseModel):
     _config_group_: str = "/llm"
     _config_name_: str = "openai"
@@ -41,6 +46,7 @@ class OpenAIChatCompletion(BaseModel):
     model: str = "gpt-3.5-turbo-0301"
     rate_limit_per_minute: int = 3500
     temperature: float = 0.0
+    env: ChatCompletionEnv = ChatCompletionEnv()
 
     _engine_: Optional[openai.ChatCompletion] = None
 
@@ -52,9 +58,8 @@ class OpenAIChatCompletion(BaseModel):
 
     def initialize(self, api_key: Optional[str] = None):
         api_key = api_key or self.api_key
-        denv = HyFI.DotEnvConfig()
-        if not api_key and denv.OPENAI_API_KEY:
-            api_key = denv.OPENAI_API_KEY.get_secret_value()
+        if not api_key and self.env.OPENAI_API_KEY:
+            api_key = self.env.OPENAI_API_KEY.get_secret_value()
         if not api_key:
             raise ValueError("OpenAI API Key is required.")
         openai.api_key = api_key
