@@ -1,8 +1,8 @@
 from typing import List, Optional, Union
 
 from datasets import Dataset
-from hyfi.run import RunConfig
-from hyfi.runner import BaseRunner
+from hyfi.run import Run
+from hyfi.runner import Runner
 
 from hyabsa import HyFI
 from hyabsa.agents import AbsaAgent
@@ -10,15 +10,15 @@ from hyabsa.agents import AbsaAgent
 logger = HyFI.getLogger(__name__)
 
 
-class AbsaRunner(BaseRunner):
+class AbsaRunner(Runner):
     _config_name_: str = "absa"
     _auto_populate_: bool = True
 
     task_name: str = "absa"
     agent: AbsaAgent = AbsaAgent()
     tasks: Optional[List[str]] = []
-    data_load: RunConfig = RunConfig(_config_name_="load_dataset")
-    data_save: RunConfig = RunConfig(_config_name_="save_dataset_to_disk")
+    data_load: Run = Run(_config_name_="load_dataset")
+    data_save: Run = Run(_config_name_="save_dataset_to_disk")
 
     text_col: str = "bodyText"
     batch_size: int = 1000
