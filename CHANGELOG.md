@@ -1,5 +1,15 @@
 <!--next-version-placeholder-->
 
+## v0.4.0 (2023-09-04)
+
+### Feature
+
+* **absa:** Add id column to batch_run and execute_each functions ([`8422d63`](https://github.com/entelecheia/hyfi-absa/commit/8422d63e66a4971f470f701f18bce9ee5c642c5d))
+* **hyabsa:** Add id column and rename bodyText to text in absa config ([`f35f44f`](https://github.com/entelecheia/hyfi-absa/commit/f35f44fdfc356978c714dffafb896518e028f7bd))
+* **AgentResult:** Add id field ([`65dd028`](https://github.com/entelecheia/hyfi-absa/commit/65dd0282bbac13fd607c919a217d2f1e659b7e10))
+* **absa:** Add id parameter to execute method ([`10439ef`](https://github.com/entelecheia/hyfi-absa/commit/10439ef78a938db23ba9af56716fd7379fc21bb6))
+* **runner:** Add id_col and text_col in test.yaml ([`4ca52bd`](https://github.com/entelecheia/hyfi-absa/commit/4ca52bd272fee8526dc84ec93937123cf4622e60))
+
 ## v0.3.3 (2023-08-25)
 
 ### Fix
