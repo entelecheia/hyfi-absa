@@ -16,7 +16,8 @@ pipelines: []
 batch_name: demo
 calls: []
 tasks: []
-text_col: bodyText
+id_col: id
+text_col: text
 batch_size: 1000
 num_workers: 1
 remove_columns: null
