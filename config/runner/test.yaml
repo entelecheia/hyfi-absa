@@ -7,6 +7,8 @@ data_load:
   path: parquet
   data_files: ${get_original_cwd:}/tests/assets/sample_data/sample_100.parquet
   split: train
+id_col: newsId
+text_col: bodyText
 
 data_save:
   dataset_path: ${get_original_cwd:}/workspace/abas_results/${..name}

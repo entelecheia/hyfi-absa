@@ -12,6 +12,7 @@ logger = HyFI.getLogger(__name__)
 
 class AgentResult(BaseModel):
     timestamp: str = f"{datetime.datetime.now():%Y-%m-%d %H:%M:%S}"
+    id: str
     parsed: str
     usage: dict
     response: List[Any]
@@ -19,6 +20,7 @@ class AgentResult(BaseModel):
     @classmethod
     def from_chat_reponse(
         cls,
+        id: str,
         response: ChatCompletionResponse,
     ) -> "AgentResult":
         parsed = "success"
@@ -32,6 +34,7 @@ class AgentResult(BaseModel):
             parsed = "failed"
 
         return cls(
+            id=id,
             parsed=parsed,
             usage=response.usage,
             response=content,

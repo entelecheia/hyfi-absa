@@ -20,7 +20,8 @@ class AbsaRunner(Runner):
     data_load: Run = Run(_config_name_="load_dataset")
     data_save: Run = Run(_config_name_="save_dataset_to_disk")
 
-    text_col: str = "bodyText"
+    id_col: str = "id"
+    text_col: str = "text"
     batch_size: int = 1000
     num_workers: int = 1
     remove_columns: Optional[Union[List[str], str]] = None
@@ -63,6 +64,7 @@ class AbsaRunner(Runner):
                 fn_kwargs={
                     "task": task,
                     "agent": self.agent.model_copy(),
+                    "id_col": self.id_col,
                     "text_col": self.text_col,
                 },
                 remove_columns=self.remove_columns,
@@ -79,6 +81,7 @@ def batch_run(
     batch,
     task: str = "QUAD",
     agent: Optional[AbsaAgent] = None,
+    id_col: str = "id",
     text_col: str = "text",
 ) -> dict:
     if agent is None:
@@ -87,15 +90,19 @@ def batch_run(
     if agent.verbose:
         HyFI.print(agent.model_dump())
 
-    res = [execute_each(text, agent) for text in batch[text_col]]
+    res = [
+        execute_each(id, text, agent)
+        for id, text in zip(batch[id_col], batch[text_col])
+    ]
     return {f"{task}_pred": res}
 
 
 def execute_each(
+    id: str,
     text: str,
     agent: AbsaAgent,
 ) -> str:
-    response = agent.execute(text)
+    response = agent.execute(id, text)
     if agent.verbose:
         # logger.info("Text: %s", text)
         logger.info("Response: %s", response)
