@@ -89,7 +89,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="https://assets.entelecheia.ai/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hyabsa.conf" href="hyabsa.conf.html" />
+    <link rel="next" title="hyabsa.agents" href="hyabsa.agents.html" />
     <link rel="prev" title="API Reference" href="../api.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -179,7 +179,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../api.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">hyabsa</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="hyabsa.agents.html">hyabsa.agents</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="hyabsa.agents.absa.html">hyabsa.agents.absa</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hyabsa.agents.base.html">hyabsa.agents.base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hyabsa.agents.results.html">hyabsa.agents.results</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="hyabsa.conf.html">hyabsa.conf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hyabsa.contexts.html">hyabsa.contexts</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="hyabsa.llms.html">hyabsa.llms</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="hyabsa.llms.openai.html">hyabsa.llms.openai</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hyabsa.prompts.html">hyabsa.prompts</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="hyabsa.runners.html">hyabsa.runners</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="hyabsa.runners.absa.html">hyabsa.runners.absa</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -418,7 +434,22 @@ document.write(`
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="hyabsa.conf.html#module-hyabsa.conf" title="hyabsa.conf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyabsa.conf</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="hyabsa.agents.html#module-hyabsa.agents" title="hyabsa.agents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyabsa.agents</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hyabsa.conf.html#module-hyabsa.conf" title="hyabsa.conf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyabsa.conf</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hyabsa.contexts.html#module-hyabsa.contexts" title="hyabsa.contexts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyabsa.contexts</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hyabsa.llms.html#module-hyabsa.llms" title="hyabsa.llms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyabsa.llms</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hyabsa.prompts.html#module-hyabsa.prompts" title="hyabsa.prompts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyabsa.prompts</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hyabsa.runners.html#module-hyabsa.runners" title="hyabsa.runners"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hyabsa.runners</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -466,11 +497,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="hyabsa.conf.html"
+       href="hyabsa.agents.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">hyabsa.conf</p>
+        <p class="prev-next-title">hyabsa.agents</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

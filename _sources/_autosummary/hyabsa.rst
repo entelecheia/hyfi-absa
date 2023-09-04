@@ -33,5 +33,10 @@
    :toctree:
    :recursive:
 
+   hyabsa.agents
    hyabsa.conf
+   hyabsa.contexts
+   hyabsa.llms
+   hyabsa.prompts
+   hyabsa.runners
 
