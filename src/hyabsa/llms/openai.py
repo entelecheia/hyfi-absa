@@ -85,7 +85,7 @@ class OpenAIChatCompletion(BaseModel):
 
 
 @tenacity.retry(
-    wait=tenacity.wait_exponential(multiplier=1, min=4, max=60 * 10),
+    wait=tenacity.wait_exponential(multiplier=1, min=4, max=60 * 5),
     retry=tenacity.retry_if_exception_type(
         (
             RateLimitError,
