@@ -1,5 +1,12 @@
 <!--next-version-placeholder-->
 
+## v0.4.1 (2023-09-07)
+
+### Fix
+
+* **openai:** Replace backoff with tenacity for retries ([`d266340`](https://github.com/entelecheia/hyfi-absa/commit/d266340ea4eb00664dab93a30f95e24f34cf3950))
+* **dependencies:** Replace backoff with tenacity ([`f40b0ce`](https://github.com/entelecheia/hyfi-absa/commit/f40b0cebd7754c948c954621b4fde592f7d8ba87))
+
 ## v0.4.0 (2023-09-04)
 
 ### Feature
