@@ -1,8 +1,9 @@
+import logging
 import time
 from typing import Any, Dict, List, Optional
 
-import backoff
 import openai
+import tenacity
 from hyfi.composer import BaseModel, Field, SecretStr
 from hyfi.env import Env
 from openai.error import (
@@ -83,14 +84,31 @@ class OpenAIChatCompletion(BaseModel):
         )
 
 
-@backoff.on_exception(
-    backoff.expo,
-    (
-        RateLimitError,
-        APIConnectionError,
-        APIError,
-        ServiceUnavailableError,
+# @backoff.on_exception(
+#     backoff.expo,
+#     (
+#         RateLimitError,
+#         APIConnectionError,
+#         APIError,
+#         ServiceUnavailableError,
+#     ),
+#     max_tries=10,
+#     max_time=60 * 60,
+#     logger=logger,
+# )
+@tenacity.retry(
+    wait=tenacity.wait_exponential(multiplier=1, min=4, max=60 * 10),
+    retry=tenacity.retry_if_exception_type(
+        (
+            RateLimitError,
+            APIConnectionError,
+            APIError,
+            ServiceUnavailableError,
+        )
     ),
+    stop=tenacity.stop_after_attempt(20),
+    after=tenacity.after_log(logger, logging.INFO),
+    before_sleep=tenacity.before_sleep_log(logger, logging.INFO),
 )
 def request_api(engine, args, delay_in_seconds: float = 1):
     time.sleep(delay_in_seconds)
