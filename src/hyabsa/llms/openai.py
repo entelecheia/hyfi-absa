@@ -84,18 +84,6 @@ class OpenAIChatCompletion(BaseModel):
         )
 
 
-# @backoff.on_exception(
-#     backoff.expo,
-#     (
-#         RateLimitError,
-#         APIConnectionError,
-#         APIError,
-#         ServiceUnavailableError,
-#     ),
-#     max_tries=10,
-#     max_time=60 * 60,
-#     logger=logger,
-# )
 @tenacity.retry(
     wait=tenacity.wait_exponential(multiplier=1, min=4, max=60 * 10),
     retry=tenacity.retry_if_exception_type(
