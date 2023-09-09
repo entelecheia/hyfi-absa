@@ -2,9 +2,11 @@
 defaults:
   - __init__
   - /pipeline@test_pipeline: test
+  - /pipeline@convert_output: convert_output
   - override /project: test
 
 workflow_name: test
 verbose: true
 pipelines:
-  - test_pipeline
+  # - test_pipeline
+  - convert_output
