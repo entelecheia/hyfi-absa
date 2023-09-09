@@ -1,8 +1,13 @@
 from hyabsa.agents import AgentResult
+from hyfi import HyFI
 
 
 def test_results():
     # BaseAgent.generate_config()
+    HyFI.generate_pipe_config(
+        AgentResult.convert_absa_output_to_results,
+        use_pipe_obj=False,
+    )
     output_file = "tests/assets/predictions/ouput.jsonl"
     results = AgentResult.convert_absa_output_to_results(output_file)
     print(results[0])
