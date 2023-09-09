@@ -41,7 +41,7 @@ class AgentResult(BaseModel):
         )
 
     @classmethod
-    def convert_output_to_results(
+    def convert_absa_output_to_results(
         cls,
         output_file: str,
         skip_failed: bool = False,
