@@ -8,7 +8,7 @@ def test_results():
         AgentResult.convert_absa_output_to_results,
         use_pipe_obj=False,
     )
-    output_file = "tests/assets/predictions/ouput.jsonl"
+    output_file = "tests/assets/predictions/output.jsonl"
     results = AgentResult.convert_absa_output_to_results(output_file)
     print(results[0])
     assert len(results) == 14
