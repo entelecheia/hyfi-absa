@@ -1,5 +1,15 @@
 <!--next-version-placeholder-->
 
+## v0.5.0 (2023-09-09)
+
+### Feature
+
+* **pipeline:** Add convert_output in config ([`468fb18`](https://github.com/entelecheia/hyfi-absa/commit/468fb18cfd0420005b83dbad6dc2e2f0a0964a29))
+* **hyabsa:** Add convert_absa_output_to_results in pipe and run configs ([`eef96b2`](https://github.com/entelecheia/hyfi-absa/commit/eef96b297c0de7688f2771414413729cef0a845c))
+* **test_results:** Add HyFI.generate_pipe_config function call ([`e53c9db`](https://github.com/entelecheia/hyfi-absa/commit/e53c9dbcf3c061e1c4814cdee6cfe593d755af17))
+* **tests:** Add new test_results module in hyabsa/agents tests ([`cbd9cce`](https://github.com/entelecheia/hyfi-absa/commit/cbd9ccef1d274c8dfef43b4fe621c50b3f83d073))
+* **results:** Add convert_output_to_results function ([`0dfe260`](https://github.com/entelecheia/hyfi-absa/commit/0dfe260d1b1a7c512fd00c48db14f6dc9d044095))
+
 ## v0.4.1 (2023-09-07)
 
 ### Fix
