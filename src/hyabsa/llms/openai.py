@@ -17,7 +17,7 @@ from openai.error import (
 from hyabsa import HyFI
 from hyabsa.contexts import ChatMessage
 
-logger = HyFI.getLogger(__name__)
+logger = logging.getlogger(__name__)
 
 
 class ChatCompletionConfig(BaseModel):

@@ -1,3 +1,4 @@
+import logging
 from typing import List, Optional, Union
 
 from datasets import Dataset
@@ -7,7 +8,7 @@ from hyfi.runner import Runner
 from hyabsa import HyFI
 from hyabsa.agents import AbsaAgent
 
-logger = HyFI.getLogger(__name__)
+logger = logging.getlogger(__name__)
 
 
 class AbsaRunner(Runner):
