@@ -1,4 +1,5 @@
 import json
+import logging
 
 from hyabsa import HyFI
 from hyabsa.llms import OpenAIChatCompletion
@@ -6,7 +7,7 @@ from hyabsa.llms import OpenAIChatCompletion
 from .base import BaseAgent
 from .results import AgentResult
 
-logger = HyFI.getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 class AbsaAgent(BaseAgent):

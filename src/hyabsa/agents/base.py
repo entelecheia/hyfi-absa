@@ -1,5 +1,6 @@
 import datetime
 import json
+import logging
 from typing import Optional
 
 from hyfi.composer import BaseModel
@@ -11,7 +12,7 @@ from hyabsa.prompts import Prompts
 
 from .results import AgentResult
 
-logger = HyFI.getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 class BaseAgent(BaseModel):

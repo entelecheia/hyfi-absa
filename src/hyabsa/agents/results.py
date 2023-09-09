@@ -1,5 +1,6 @@
 import datetime
 import json
+import logging
 from typing import Any, Dict, List
 
 from hyfi.composer import BaseModel
@@ -7,7 +8,7 @@ from hyfi.composer import BaseModel
 from hyabsa import HyFI
 from hyabsa.llms import ChatCompletionResponse
 
-logger = HyFI.getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 class AgentResult(BaseModel):
@@ -65,4 +66,5 @@ class AgentResult(BaseModel):
                 else:
                     line["response"] = value_for_failed
             results.append(line)
+        logger.info("Converted %s to %s AgentResult objects", output_file, len(results))
         return results
