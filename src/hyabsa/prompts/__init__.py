@@ -5,7 +5,7 @@ from hyfi.composer import BaseModel
 
 from hyabsa import HyFI
 
-logger = logging.getlogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 class Prompts(BaseModel):

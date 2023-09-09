@@ -8,7 +8,7 @@ from hyfi.runner import Runner
 from hyabsa import HyFI
 from hyabsa.agents import AbsaAgent
 
-logger = logging.getlogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 class AbsaRunner(Runner):
