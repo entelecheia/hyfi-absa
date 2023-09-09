@@ -1,13 +1,14 @@
 import datetime
 import json
-from typing import Any, List
+import logging
+from typing import Any, Dict, List
 
 from hyfi.composer import BaseModel
 
 from hyabsa import HyFI
 from hyabsa.llms import ChatCompletionResponse
 
-logger = HyFI.getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 class AgentResult(BaseModel):
@@ -39,3 +40,31 @@ class AgentResult(BaseModel):
             usage=response.usage,
             response=content,
         )
+
+    @classmethod
+    def convert_absa_output_to_results(
+        cls,
+        output_file: str,
+        skip_failed: bool = False,
+        value_for_failed: Any = None,
+    ) -> List[Dict]:
+        """Converts a jsonl output file into AgentResult objects
+
+        Args:
+            output_file (str): path to jsonl file
+            skip_failed (bool, optional): If True, skips failed responses. Defaults to False.
+            value_for_failed (Any, optional): If skip_failed is False, this value is used for the response. Defaults to None.
+
+        Returns:
+            List[Dict]: List of AgentResult objects
+        """
+        results = []
+        for line in HyFI.load_jsonl(output_file):
+            if line["parsed"] == "failed":
+                if skip_failed:
+                    continue
+                else:
+                    line["response"] = value_for_failed
+            results.append(line)
+        logger.info("Converted %s to %s AgentResult objects", output_file, len(results))
+        return results

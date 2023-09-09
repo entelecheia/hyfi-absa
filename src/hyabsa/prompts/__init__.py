@@ -1,10 +1,11 @@
+import logging
 from typing import Dict
 
 from hyfi.composer import BaseModel
 
 from hyabsa import HyFI
 
-logger = HyFI.getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 class Prompts(BaseModel):

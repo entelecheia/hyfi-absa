@@ -1,0 +1,18 @@
+defaults:
+  - __init__
+  - /pipe@convert_absa_output_to_results: convert_absa_output_to_results
+  - /pipe@records_to_dataframe: records_to_dataframe
+  - /pipe@save_dataframes: save_dataframes
+
+steps:
+  - uses: convert_absa_output_to_results
+    with:
+      output_file:  ${__project_root_path__:}/tests/assets/predictions/output.jsonl
+      skip_failed: true
+    verbose: true
+  - uses: records_to_dataframe
+  - uses: save_dataframes
+    with:
+      data_file:  ${__project_root_path__:}/workspace/predictions/output.parquet
+      verbose: true
+    verbose: true
