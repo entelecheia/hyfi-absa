@@ -1841,13 +1841,13 @@ PyYAML = ">=5.1.0"
 
 [[package]]
 name = "openai"
-version = "1.2.0"
-description = "Client library for the openai API"
+version = "1.2.4"
+description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.7.1"
 files = [
-    {file = "openai-1.2.0-py3-none-any.whl", hash = "sha256:864c3c0d611e555e92be2960043d5f0ca3b995847fa59acd5b41faa00f9b16e0"},
-    {file = "openai-1.2.0.tar.gz", hash = "sha256:61b273f813534df1d91cb185095de52471ec51198f4ea355bf21692f6c4b9a19"},
+    {file = "openai-1.2.4-py3-none-any.whl", hash = "sha256:53927a2ca276eec0a0efdc1ae829f74a51f49b7d3e14cc6f820aeafb0abfd802"},
+    {file = "openai-1.2.4.tar.gz", hash = "sha256:d99a474049376be431d9b4dec3a5c895dd76e19165748c5944e80b7905d1b1ff"},
 ]
 
 [package.dependencies]
