@@ -5,8 +5,6 @@ from typing import Any, Dict, List, Optional
 import tenacity
 from hyfi.composer import BaseModel, Field, SecretStr
 from hyfi.env import Env
-
-# new
 from openai import (
     APIConnectionError,
     APIError,
