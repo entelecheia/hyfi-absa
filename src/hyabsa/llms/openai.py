@@ -2,16 +2,18 @@ import logging
 import time
 from typing import Any, Dict, List, Optional
 
-import openai
 import tenacity
 from hyfi.composer import BaseModel, Field, SecretStr
 from hyfi.env import Env
-from openai.error import (
+
+# new
+from openai import (
     APIConnectionError,
     APIError,
-    InvalidRequestError,
+    BadRequestError,
+    InternalServerError,
+    OpenAI,
     RateLimitError,
-    ServiceUnavailableError,
 )
 
 from hyabsa.contexts import ChatMessage
@@ -48,7 +50,7 @@ class OpenAIChatCompletion(BaseModel):
     temperature: float = 0.0
     env: ChatCompletionEnv = ChatCompletionEnv()
 
-    _engine_: Optional[openai.ChatCompletion] = None
+    _engine_: Optional[OpenAI] = None
 
     @property
     def engine(self):
@@ -62,9 +64,9 @@ class OpenAIChatCompletion(BaseModel):
             api_key = self.env.OPENAI_API_KEY.get_secret_value()
         if not api_key:
             raise ValueError("OpenAI API Key is required.")
-        openai.api_key = api_key
+
         logger.info("OpenAI API Key is set successfully.")
-        self._engine_ = openai.ChatCompletion()
+        self._engine_ = OpenAI(api_key=api_key)
         logger.info("OpenAI ChatCompletion API is initialized.")
 
     def build_config(self, message: ChatMessage) -> Dict[str, Any]:
@@ -90,7 +92,7 @@ class OpenAIChatCompletion(BaseModel):
             RateLimitError,
             APIConnectionError,
             APIError,
-            ServiceUnavailableError,
+            InternalServerError,
         )
     ),
     stop=tenacity.stop_after_attempt(20),
@@ -99,7 +101,7 @@ class OpenAIChatCompletion(BaseModel):
 )
 def request_api(engine, args, delay_in_seconds: float = 1):
     time.sleep(delay_in_seconds)
-    return engine.create(**args)
+    return engine.completions.create(**args)
 
 
 def call_api(engine, args, delay_in_seconds: float = 1) -> ChatCompletionResponse:
@@ -110,7 +112,7 @@ def call_api(engine, args, delay_in_seconds: float = 1) -> ChatCompletionRespons
         content = message["content"].strip().strip("\n")
         usage = response["usage"]
         return ChatCompletionResponse(content=content, usage=usage)
-    except InvalidRequestError as e:
+    except BadRequestError as e:
         logger.error(e)
         return ChatCompletionResponse(content=e.user_message)
     except Exception as e:
