@@ -1,4 +1,5 @@
 """Command line interface for hyabsa"""
+
 from hyfi import hyfi_main
 
 
