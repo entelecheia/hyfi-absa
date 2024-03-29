@@ -1,5 +1,11 @@
 <!--next-version-placeholder-->
 
+## v0.5.1 (2024-03-29)
+
+### Fix
+
+* **dependencies:** Upgrade hyfi version to ^1.36.3 ([`687d53a`](https://github.com/entelecheia/hyfi-absa/commit/687d53a4a7d9b48f2373d6c7cf5fcfa98602ac21))
+
 ## v0.5.0 (2023-09-09)
 
 ### Feature
