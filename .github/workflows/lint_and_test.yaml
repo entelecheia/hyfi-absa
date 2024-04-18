@@ -6,11 +6,11 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - "*"
+      - "main"
+      - "release"
     paths:
       - "src/**"
       - "tests/**"
-      - '.copier-template/**'
 
 jobs:
   build:

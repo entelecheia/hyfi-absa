@@ -1,5 +1,5 @@
 # Changes here will be overwritten by Copier; do NOT edit manually
-_commit: v0.11.7
+_commit: v0.14.2
 _src_path: gh:entelecheia/hyperfast-python-template
 author: Young Joon Lee
 build_and_release: true
@@ -17,6 +17,7 @@ github_username: entelecheia
 google_analytics_id: G-Q1HTTH4YZ2
 logo_path: ''
 main_branch: main
+open_link: false
 package_name: hyabsa
 package_scripts:
 - hyabsa = 'hyabsa.__cli__:main'
