@@ -1912,13 +1912,13 @@ PyYAML = ">=5.1.0"
 
 [[package]]
 name = "openai"
-version = "1.26.0"
+version = "1.27.0"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.7.1"
 files = [
-    {file = "openai-1.26.0-py3-none-any.whl", hash = "sha256:884ced523fb0225780f8b0e0ed6f7e014049c32d049a41ad0ac962869f1055d1"},
-    {file = "openai-1.26.0.tar.gz", hash = "sha256:642e857b60855702ee6ff665e8fa80946164f77b92e58fd24e01b545685b8405"},
+    {file = "openai-1.27.0-py3-none-any.whl", hash = "sha256:1183346fae6e63cb3a9134e397c0067690dc9d94ceb36eb0eb2c1bb9a1542aca"},
+    {file = "openai-1.27.0.tar.gz", hash = "sha256:498adc80ba81a95324afdfd11a71fa43a37e1d94a5ca5f4542e52fe9568d995b"},
 ]
 
 [package.dependencies]
@@ -3171,4 +3171,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9, <3.13"
-content-hash = "24c4e8750c2539dde60f83e7b1d996102c7086e8536d6a8afce09537a980adcf"
+content-hash = "dc6012e1e4363f3b0d0409a9ea8214d8ef5e63a51764e7fb81568c057b366749"
