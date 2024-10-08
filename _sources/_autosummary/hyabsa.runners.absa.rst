@@ -4,11 +4,6 @@ hyabsa.runners.absa
 .. automodule:: hyabsa.runners.absa
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
@@ -16,21 +11,9 @@ hyabsa.runners.absa
       batch_run
       execute_each
    
-   
-
-   
-   
    .. rubric:: Classes
 
    .. autosummary::
    
       AbsaRunner
    
-   
-
-   
-   
-   
-
-
-

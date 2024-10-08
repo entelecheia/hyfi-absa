@@ -4,21 +4,12 @@ hyabsa.llms.openai
 .. automodule:: hyabsa.llms.openai
 
    
-   
-   
-
-   
-   
    .. rubric:: Functions
 
    .. autosummary::
    
       call_api
       request_api
-   
-   
-
-   
    
    .. rubric:: Classes
 
@@ -29,11 +20,3 @@ hyabsa.llms.openai
       ChatCompletionResponse
       OpenAIChatCompletion
    
-   
-
-   
-   
-   
-
-
-
